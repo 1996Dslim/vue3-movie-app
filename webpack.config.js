@@ -4,6 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const CopyPlugin  = require('copy-webpack-plugin');
 //추가
 const { VueLoaderPlugin } = require('vue-loader');
+const Dotenv = require('dotenv-webpack');
 
 // export
 module.exports = {
@@ -79,11 +80,14 @@ module.exports = {
             ]
         }),
         //vue추가
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new Dotenv()
     ],
 
     devServer: {
-        host: 'localhost'
+        host: 'localhost',
+        port: 8079,
+        hot: true
     }
 }
 
