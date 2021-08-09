@@ -73,7 +73,7 @@ export default {
                         })
                     }
                 }
-            } catch(message) {
+            } catch({ message }) {
                 commit('updateState', {
                     movies: [],
                     message
@@ -111,6 +111,12 @@ export default {
     }
 }
 
+async function _fetchMovie(payload) {
+    return await axios.post('/.netlify/functions/movie', payload)
+}
+
+
+/*
 function _fetchMovie(payload) {
     const { title, type, year, page, id} = payload
     const OMDB_API_KEY = '7035c60c'
@@ -131,4 +137,4 @@ function _fetchMovie(payload) {
         })
     })
 }
-
+*/
